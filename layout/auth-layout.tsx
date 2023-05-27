@@ -23,7 +23,10 @@ export const AuthLayout = ({ children }: AuthLayoutType) => {
 	// useLoadUserInfo(session?.user?.email as string)
 
 	if (status === "loading") { return <Loader /> }
-	else if (status === "unauthenticated" && !ROUTE.test(pathname)) { Router.push("/login") }
+	else if (status === "unauthenticated" && !ROUTE.test(pathname)) {
+		// Router.push("/login")
+		return <Loader />
+	}
 
 	return <div>{children}</div>
 }
