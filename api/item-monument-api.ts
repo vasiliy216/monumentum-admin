@@ -1,7 +1,6 @@
 import { NextApiRequest } from "next"
 import Router from "next/router"
 import { fetchApi } from "./fetch-api"
-import { ItemType } from "components/admin/shared/data/types"
 import { CurrentModalType } from "pages/api/item-monument"
 
 export const getItems = async (page: string | "all", tp: CurrentModalType = "Singles", req?: NextApiRequest) => {

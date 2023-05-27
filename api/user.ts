@@ -4,7 +4,7 @@ import { User, TransformationType } from "types"
 
 export const userLogin = async (user?: TransformationType<User>, req?: NextApiRequest) => {
 	try {
-		const res = await fetchApi(req, "/api/auth", {
+		const res = await fetchApi(req, "/api/user", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ user })
