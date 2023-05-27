@@ -1,0 +1,20 @@
+.icon_delete:hover {
+    color: #ff4d4f !important;
+}
+
+.add_card {
+    height: 100%;
+    min-height: 100px;
+}
+
+.add_card>div {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.add_body {
+    color: var(--a-gray);
+    text-align: center;
+}

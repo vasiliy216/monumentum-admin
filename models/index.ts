@@ -1,0 +1,7 @@
+export * from "./user"
+export * from "./simple-monument"
+export * from "./double-monuments"
+export * from "./exclusive-monuments"
+export * from "./fences"
+export * from "./types-of-stone"
+export * from "./vases"

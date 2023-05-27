@@ -1,0 +1,6 @@
+.custom-loader-spinner {position:relative; overflow:hidden;}
+@keyframes loader-overlay {from {opacity:0;} to {opacity:0.8;}}
+@keyframes spinner-emergence {from {opacity:0} to {opacity:1}}
+@keyframes spinner-rotate {to {transform:rotate(360deg)}}
+.custom-loader-spinner:before {content:""; background:#ffffff; position:absolute; top:0; bottom:0; left:0; right:0; opacity:0.8; animation:loader-overlay .3s ease-in-out; z-index:9999;}
+.custom-loader-spinner:after {content:""; width:32px; height:32px; border:2px solid var(--c-green); border-right:2px solid transparent; border-radius:50%; position:absolute; top:50%; left:50%; margin:-16px 0 0 -16px; opacity:1; animation:spinner-rotate .73s linear infinite, spinner-emergence .3s ease-in-out; z-index:9999;}

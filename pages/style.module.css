@@ -1,0 +1,71 @@
+/* sign-in */
+
+.bgc {
+    background-color: var(--bgc-gray) !important;
+}
+
+.inner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.title>h2 {
+    margin-bottom: 10px;
+    color: var(--c-green);
+}
+
+.title>p {
+    color: var(--c-gray);
+}
+
+.box {
+    width: 350px;
+    height: auto;
+
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(21, 30, 40, .07), 0 2px 4px rgba(21, 30, 40, .07), 0 4px 8px rgba(21, 30, 40, .07), 0 8px 16px rgba(21, 30, 40, .07), 0 16px 32px rgba(21, 30, 40, .07), 0 32px 64px rgba(21, 30, 40, .07) !important;
+
+    padding: 32px;
+}
+
+.btn {
+    width: 100%;
+    margin: 0;
+}
+
+/* dashboard */
+
+.dash_header {
+    background: #fff !important;
+    padding: 0 24px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dash_logo {
+    font-family: 'Arizonia', cursive;
+    color: #ffffffa6;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 24px;
+    height: 32px;
+    margin: 16px;
+}
+
+.dash_content {
+    padding: 24px;
+    margin: 0;
+    height: calc(100vh - 112px);
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

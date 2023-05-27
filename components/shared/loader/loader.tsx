@@ -1,0 +1,1 @@
+export const Loader = () => <div className="custom-loader-spinner" style={{ height: "100vh" }} />
