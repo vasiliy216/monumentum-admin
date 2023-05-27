@@ -22,7 +22,7 @@ export const AuthLayout = ({ children }: AuthLayoutType) => {
 
 	if (status === "loading") { return <Loader /> }
 	else if (status === "unauthenticated" && !ROUTE.test(pathname)) {
-		// Router.push("/login")
+		Router.push("/login")
 		return <Loader />
 	}
 

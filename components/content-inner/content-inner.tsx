@@ -7,7 +7,7 @@ import {
 import { Card, Col, Row, Popconfirm } from "antd"
 import type { RadioChangeEvent } from "antd"
 import Image from "next/image"
-import { deleteItem } from "api"
+import { deleteItem } from "fetch-api"
 import { ModalController, ModalOpenType, SettingsForPage } from "components"
 import { showSuccessNotification, showErrorNotification } from "components/shared"
 import { ItemsType, ItemType } from "components/shared/data/types"

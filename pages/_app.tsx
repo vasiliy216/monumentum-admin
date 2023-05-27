@@ -4,12 +4,13 @@ import "styles/custom-loader-spinner.css"
 import "custom-extensions"
 import Head from "next/head"
 import { SessionProvider } from "next-auth/react"
+import type { Session } from "next-auth"
 import { Provider } from "react-redux"
 import type { AppProps } from "next/app"
 import { AuthLayout } from "layout/auth-layout"
 import { store } from "store"
 
-const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
+const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps<{ session: Session }>) => {
 	return (
 		<SessionProvider session={session}>
 			<Provider store={store}>

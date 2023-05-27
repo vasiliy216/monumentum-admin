@@ -6,7 +6,7 @@ import {
 	MenuUnfoldOutlined
 } from "@ant-design/icons"
 import { useRouter } from "next/router"
-import { getItems } from "api"
+import { getItems } from "fetch-api"
 import { ItemsType } from "components/shared/data/types"
 import { ContentInner, DashboardMenu, Profile } from "components"
 import { CurrentModalType } from "pages/api/item-monument"
