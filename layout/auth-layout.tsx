@@ -18,8 +18,6 @@ export const AuthLayout = ({ children }: AuthLayoutType) => {
 	console.log("session", session)
 	console.log("status", status)
 
-	useEffect(() => { process.env.NEXTAUTH_URL = window.location.origin }, [])
-
 	// useLoadUserInfo(session?.user?.email as string)
 
 	if (status === "loading") { return <Loader /> }

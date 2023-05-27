@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt"
-import { NextApiRequest, NextApiResponse } from "next"
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { Users } from "models"
@@ -44,23 +43,7 @@ export const authOptions: NextAuthOptions = {
 			return props.session
 		}
 	},
-	secret: process.env.NEXT_AUTH_SECRET
+	secret: process.env.NEXTAUTH_SECRET
 }
 
-function setNextAuthUrl(req: NextApiRequest) {
-	const protocol = process.env.NODE_ENV === "production" ? "https" : "http"
-	const host = req.headers["host"]
-
-	if (!host) {
-		throw new Error("The request has no host header which breaks authentication and authorization.")
-	}
-
-	if (protocol === "https") { return }
-
-	process.env.NEXTAUTH_URL = `${protocol}://${host}`
-}
-
-export default (req: NextApiRequest, res: NextApiResponse) => {
-	setNextAuthUrl(req)
-	return NextAuth(req, res, authOptions)
-}
+export default NextAuth(authOptions)

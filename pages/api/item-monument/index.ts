@@ -72,7 +72,7 @@ export default async (req: CurrentNextApiRequest, res: NextApiResponse) => {
 			optionsSuccessStatus: 200
 		})
 		// console.log("req", req)
-		const auth = await getToken({ req, secret: process.env.NEXT_AUTH_SECRET })
+		const auth = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
 		if (!auth && method !== "GET") { return res.status(401).json({ message: "Unauthorized" }) }
 
 		const _currentModal = CurrentModal[query.tp]
