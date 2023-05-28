@@ -9,7 +9,7 @@ import type { RadioChangeEvent } from "antd"
 import Image from "next/image"
 import { deleteItem } from "fetch-api"
 import { ModalController, ModalOpenType, SettingsForPage } from "components"
-import { showSuccessNotification, showErrorNotification } from "components/shared"
+import { showSuccessNotification, showWarningNotification, showErrorNotification } from "components/shared"
 import { ItemsType, ItemType } from "components/shared/data/types"
 import styles from "./style.module.css"
 
@@ -89,6 +89,7 @@ export const ContentInner = (props: ContentInnerType) => {
 		const res = await deleteItem(id)
 
 		if (res.statusCode === 200) { showSuccessNotification("The item was successfully deleted.") }
+		else if (res.message) { showWarningNotification(res.message) }
 		else { showErrorNotification(res.error) }
 
 		return null
