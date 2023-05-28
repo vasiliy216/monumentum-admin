@@ -9,7 +9,7 @@ import type { UploadChangeParam } from "antd/es/upload"
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface"
 import { PlusOutlined, LoadingOutlined } from "@ant-design/icons"
 import { createItem, updateItem } from "fetch-api"
-import { showSuccessNotification, showErrorNotification } from "components/shared"
+import { showSuccessNotification, showWarningNotification, showErrorNotification } from "components/shared"
 import { ItemType } from "components/shared/data/types"
 import { ModalOpenType } from "./modal-controller"
 import styles from "./style.module.css"
@@ -111,6 +111,7 @@ export const ContentModal = (props: ModalControllerPropsType) => {
 		const res = await createItem(formData)
 
 		if (res.statusCode === 200) { showSuccessNotification("The new item was successfully added.") }
+		else if (res.message) { showWarningNotification(res.message) }
 		else { showErrorNotification(res.error) }
 	}
 
@@ -122,6 +123,7 @@ export const ContentModal = (props: ModalControllerPropsType) => {
 		const res = await updateItem(formData)
 
 		if (res.statusCode === 200) { showSuccessNotification("The item was successfully updated.") }
+		else if (res.message) { showWarningNotification(res.message) }
 		else { showErrorNotification(res.error) }
 	}
 
