@@ -160,6 +160,7 @@ export const ContentModal = (props: ModalControllerPropsType) => {
 						listType="picture-card"
 						className={styles.upload}
 						showUploadList={false}
+						action="/api/img"
 						beforeUpload={async (file) => {
 							console.log("async (file)", file)
 							setFile(file)
