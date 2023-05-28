@@ -55,7 +55,7 @@ const menuItems = [
 export const DashboardMenu = () => {
 	const router = useRouter()
 	const { page } = router.query
-	const handleMenuChange: MenuProps["onClick"] = (e) => { router.push({ pathname: "/admin/dashboard", query: { page: e.key } }) }
+	const handleMenuChange: MenuProps["onClick"] = (e) => { router.push({ pathname: "/", query: { page: e.key } }) }
 	const defaultItem = page as string || "Singles"
 	return (
 		<Menu

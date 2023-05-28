@@ -15,6 +15,47 @@ import styles from "./style.module.css"
 
 const { Meta } = Card
 
+type SizeType = {
+	length: string
+	width: string
+	height: string
+}
+
+/* remake */
+
+const config = {
+	length: "Длина: ",
+	width: "Ширина: ",
+	height: "Высота: ",
+	other: "Размер: ",
+	x: " x ",
+	sm: " см."
+}
+
+const configSize = {
+	"0": function () { return undefined },
+	"1": function () {
+		const [key, value] = Object.entries(this)[0]
+		return config[key as keyof typeof config] + value + config.sm
+	},
+	"2": function () {
+		const values = Object.values(this).join(config.x)
+		return config.other + values + config.sm
+	},
+	"3": function () {
+		const values = Object.values(this).join(config.x)
+		return config.other + values + config.sm
+	}
+}
+
+const getSize = (size: SizeType) => {
+	const objSize: Record<string, string> = {}
+	Object.entries(size).forEach(([key, value]) => value && (objSize[key] = value))
+	return configSize[String(Object.keys(objSize).length) as keyof typeof configSize].call(objSize)
+}
+
+/*  */
+
 type ContentInnerType = {
 	size: number
 	handleSizeChange: (e: RadioChangeEvent) => void
@@ -101,7 +142,7 @@ export const ContentInner = (props: ContentInnerType) => {
 							>
 								<Meta
 									title={item.name}
-									description={item.size ? item.size?.length ? `Размер: ${item.size.length} × ${item.size.width} × ${item.size.height} см.` : `Высота: ${item.size?.height} см.` : undefined}
+									description={getSize(item.size)}
 								/>
 							</Card>
 						</Col>
