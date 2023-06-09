@@ -71,9 +71,17 @@ export default async (req: CurrentNextApiRequest, res: NextApiResponse) => {
 			origin: "*",
 			optionsSuccessStatus: 200
 		})
-		// console.log("req", req)
-		const auth = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
-		if (!auth && method !== "GET") { return res.status(401).json({ message: "Unauthorized", auth, method, secret: process.env.NEXTAUTH_SECRET }) }
+		// req.headers?.authorization
+		// vercel next-auth api not working getToken
+		const auth = await getToken({ req, secret: process.env.NEXTAUTH_SECRET, raw: true })
+		if (!auth && method !== "GET") {
+			return res.status(401).json({
+				message: "Unauthorized",
+				auth,
+				method,
+				secret: process.env.NEXTAUTH_SECRET
+			})
+		}
 
 		const _currentModal = CurrentModal[query.tp]
 
