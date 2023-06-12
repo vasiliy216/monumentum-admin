@@ -49,6 +49,7 @@ const configSize = {
 }
 
 const getSize = (size: SizeType) => {
+	if (!size) { return "" }
 	const objSize: Record<string, string> = {}
 	Object.entries(size).forEach(([key, value]) => value && (objSize[key] = value))
 	return configSize[String(Object.keys(objSize).length) as keyof typeof configSize].call(objSize)
