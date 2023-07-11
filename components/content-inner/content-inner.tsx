@@ -115,7 +115,7 @@ export const ContentInner = (props: ContentInnerType) => {
 							<Card
 								size="small"
 								hoverable
-								extra={<div>Cost: {item.cost} $</div>}
+								extra={<div>From {item.cost} BYN</div>}
 								cover={
 									<div style={{ border: "1px solid #f0f0f0" }}>
 										<Image
